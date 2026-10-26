@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع الرواية | الصفحة الرسمية</title>
+    <!-- خطوط عربية أنيقة من جوجل -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* المتغيرات الأساسية للألوان */
+        :root {
+            --خلفية-الموقع: #0d0c1d;
+            --خلفية-البطاقات: #16152b;
+            --لون-النص الرئيسي: #f1f1f1;
+            --لون-النص-الفرعي: #a5a5c7;
+            --اللون-الرئيسي: #d4af37; /* ذهبي */
+            --لون-التأكيد: #ff6b6b;
+            --لون-الحدود: #2a2845;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--خلفية-الموقع);
+            color: var(--لون-النص الرئيسي);
+            line-height: 1.8;
+        }
+
+        /* شريط القائمة العلوي */
+        header {
+            background: rgba(13, 12, 29, 0.95);
+            border-bottom: 1px solid var(--لون-الحدود);
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+ 
+        .logo {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            color: var(--اللون-الرئيسي);
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--لون-النص الرئيسي);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--اللون-الرئيسي);
+        }
+
+        /* واجهة الترحيب (Hero Section) */
+        .hero {
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1.5rem;
+            background: linear-gradient(rgba(13,12,29,0.75), rgba(13,12,29,0.95)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1920') no-repeat center center/cover;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-family: 'Amiri', serif;
+            font-size: 3.5rem;
+            color: var(--اللون-الرئيسي);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--لون-النص-الفرعي);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background-color: var(--اللون-الرئيسي);
+            color: #000;
+            padding: 0.8rem 2.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #f3cf55;
+            transform: scale(1.05);
+        }
+
+        /* الأقسام العامة */
+        section {
+            padding: 4rem 10%;
+        }
+
+        section h2 {
+            font-family: 'Amiri', serif;
+            font-size: 2.3rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--اللون-الرئيسي);
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: var(--اللون-الرئيسي);
+            margin: 8px auto 0;
+        }
+
+        /* شبكة الشخصيات */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--خلفية-البطاقات);
+            border: 1px solid var(--لون-الحدود);
+            border-radius: 12px;
+            padding: 1.8rem;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--اللون-الرئيسي);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--اللون-الرئيسي);
+        }
+
+        .card p {
+            color: var(--لون-النص-الفرعي);
+            font-size: 0.95rem;
+        }
+
+        /* منطقة قارئ الفصول */
+        .reader-container {
+            background-color: var(--خلفية-البطاقات);
+            border: 1px solid var(--لون-الحدود);
+            border-radius: 12px;
+            padding: 2.5rem;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .reader-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--لون-الحدود);
+            padding-bottom: 1rem;
+        }
+
+        .btn-control {
+            background: transparent;
+            border: 1px solid var(--لون-النص-الفرعي);
+            color: var(--لون-النص الرئيسي);
+            padding: 4px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-control:hover {
+            border-color: var(--اللون-الرئيسي);
+            color: var(--اللون-الرئيسي);
+        }
+
+        .chapter-content {
+            font-family: 'Amiri', serif;
+            font-size: 1.35rem;
+            line-height: 2.3;
+            color: #e2e2e2;
+        }
+
+        /* التذييل (الفوتر) */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #070611;
+            color: var(--لون-النص-الفرعي);
+            border-top: 1px solid var(--لون-الحدود);
+            font-size: 0.9rem;
+        }
+
+        /* تحسين العرض للهواتف */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            section {
+                padding: 3rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شريط القائمة -->
+    <header>
+        <div class="logo">Umbra Reign</div>
+        <nav>
+            <ul>
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#about">عن القصة</a></li>
+                <li><a href="#characters">الشخصيات</a></li>
+                <li><a href="#map-section">الخريطة</a></li>
+                <li><a href="#reader">الفصول</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- الواجهة الرئيسية -->
+    <section id="home" class="hero">
+        <h1>Umbra Reign</h1>
+        <p>في عمق عوالم فيلمورا، حيث تتقاطع خيوط الزمن وتتوارى الأسرار خلف جدران القصور والمقابر القديمة، تبدأ رحلة بحث عن الحقيقة وسط ظلالٍ ودماء توشك أن تبتلع كل شيء…</p>
+        <a href="#reader" class="btn">ابدأ القراءة</a>
+    </section>
+
+    <!-- ملخص القصة -->
+    <section id="about">
+        <h2>عن القصة</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto; color: var(--لون-النص-الفرعي); font-size: 1.15rem;">
+            تجد بياتريس نفسها وسط أسئلة كثيرة يكتنفها الغموض ورحلة بحث لا ترحم في أرجاء عالم فيلمورا. برفقة شقيقها التوأم لوسيان وأختها ايليانا، تحاول بياتريس فك تشابك الظلال التي تحيط بمصير عائلتها… فهل تكون الحقيقة هي ما يبحثون عنه حقاً؟
+        </p>
+    </section>
+
+    <!-- قسم الشخصيات -->
+    <section id="characters">
+        <h2>الشخصيات الرئيسية</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>بياتريس</h3>
+                <p style="color: var(--اللون-الرئيسي); font-size: 0.9rem; margin-bottom: 0.5rem; font-weight: bold;">[ نوع السحر: الظلال ]</p>
+                <p>البطلة الرئيسية، تتميز بشعر أبيض وعيون حمراء لافتة. فتاة ذات إرادة صلبة وبصيرة نافذة، تتميز بشخصيتها القوية وسعيها الدؤوب نحو كشف الحقيقة مهما كانت مظلمة.</p>
+            </div>
+
+            <div class="card">
+                <h3>لوسيان</h3>
+                <p style="color: var(--اللون-الرئيسي); font-size: 0.9rem; margin-bottom: 0.5rem; font-weight: bold;">[ نوع السحر: التلاعب العقلي ]</p>
+                <p>الأخ التوأم لبياتريس، يشاركها ملامحها بشعر أبيض وعيون حمراء لافتة. بشخصيته المحاطة بالغموض وهدوءه، يقف دائماً في المساحة الفاصلة بين الحقيقة وما يخفيه عن الجميع.</p>
+            </div>
+
+            <div class="card">
+                <h3>ايليانا</h3>
+                <p style="color: var(--اللون-الرئيسي); font-size: 0.9rem; margin-bottom: 0.5rem; font-weight: bold;">[ نوع السحر: غير معروف بعد ]</p>
+                <p>الأخت الحاضرة بقوة وسط أحداث العائلة، تتميز بمظهرها اللطيف جداً، وعيونها البنفسجية الساحرة، وشعرها الأبيض المائل للزهري من الأطراف. تشارك شقيقيها بياتريس ولوسيان رحلتها بروح صلبة.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم خريطة عالم فيلمورا -->
+    <section id="map-section" style="margin-top: 3rem; text-align: center;">
+        <h2 style="color: var(--اللون-الرئيسي); margin-bottom: 0.5rem; border-bottom: 2px solid var(--اللون-الرئيسي); display: inline-block; padding-bottom: 0.5rem;">
+            خريطة فيلمورا: القوى الأربع ومهد السحر
+        </h2>
+        <p style="color: #ccc; margin-bottom: 1.5rem; font-size: 0.95rem;">
+            استكشف تضاريس عالم القصة، الممالك والأقاليم المحيطة ببرج السحر الأعلى.
+        </p>
+
+        <!-- إطار الخريطة -->
+        <div class="map-container" style="background: rgba(0, 0, 0, 0.4); border: 2px solid var(--اللون-الرئيسي); border-radius: 12px; padding: 1rem; max-width: 950px; margin: 0 auto; box-shadow: 0 0 20px rgba(186, 85, 211, 0.3);">
+            <img src="https://i.postimg.cc/8jQzPQYr/image.png" alt="خريطة فيلمورا" style="width: 100%; height: auto; border-radius: 8px; display: block;">
+        </div>
+    </section>
+
+    <!-- قارئ الفصول -->
+    <section id="reader">
+        <h2>قراءة الفصول</h2>
+        <div class="reader-container">
+            <div class="reader-controls">
+                <span style="font-weight: bold; color: var(--اللون-الرئيسي);">الفصل الأول: البداية</span>
+                <div>
+                    <button class="btn-control" onclick="changeFontSize(1)">تكبير الخط +</button>
+                    <button class="btn-control" onclick="changeFontSize(-1)">تصغير الخط -</button>
+                </div>
+            </div>
+            <div class="chapter-content" id="chapterText">
+                فيلمورا: القوى الأربع ومهد السحر<br><br>
+                في عالم "فيلمورا"، حيث يتدفق السحر كقانون طبيعي، تتشكل خارطة القوة من أربع قارات ضخمة تتقاسم النفوذ، وتتوسطها جزيرة محورية تحمل ثقل النظام السحري بأكمله. كل إقليم يمثل قوة سحرية وفلسفة حكم مختلفة.<br><br>
+                <strong>إيلنثا: قارة الضباب والنظام</strong><br>
+                تُعد إيلنثا أرضًا للتحالفات السياسية. القارة مغطاة بضباب دائم، وتحوي بين أطلالها بقايا حضارات قديمة يُشاع أن الزمن فيها يسير ببطء واضطراب. وهي القاعدة الرئيسية التي تُقدم الدعم اللوجستي والعسكري للمجلس الأعلى.<br><br>
+                <strong>أزيرال: مملكة التوازن والجليد</strong><br>
+                في أقصى الشمال، تقع أزيرال، قارة الجليد والصفاء. موطن مملكة "نوفارين" تحت حكم الملكة "إليندرا نوفار". سكانها يتقنون سحر الرياح والجليد، ونهجهم يقوم على حماية التوازن الطبيعي، مما يجعلهم قوة دفاعية ثابتة.<br><br>
+                <strong>داراثوس: إمبراطورية الفوضى والنار</strong><br>
+                على النقيض الجذري، تقع داراثوس، قارة النار والدمار. تحكمها "إمبراطورية دراكسول" والإمبراطور الطاغية "فالريك دارموث". شعبها يستخدم سحر النار والدمار بفعالية، وكل وجودهم مبني على القوة، مما يجعلهم التهديد المستمر لأمن فيلمورا.<br><br>
+                <strong>لاستوريا: قارة المعرفة والنور</strong><br>
+                إلى الشرق، تقع لاستوريا، قارة النور والحكمة. يحكمها الإمبراطور الحكيم "أورين فاليرو"، وهي الخزانة الكبرى للمعرفة السحرية. تزينها صروح ضخمة من المعابد والمكتبات التي تحوي سجلات وأسرارًا تاريخية، مما يجعلها مرجعًا لا غنى عنه لكل باحث.<br><br>
+                <strong>جزيرة زيرافين: معقل الظلال</strong><br>
+                قرب إيلنثا، تطفو زيرافين، مملكة الظلال والسحر الليلي. يحكمها الملك "داركيث"، سيد سحر الظلام. اللافت في الجزيرة هو "الدوق إيرثوين"، صديق الملك، الذي يمتلك قدرة فريدة ونادرة هي "سحر الظلال"، وهي قوة لا تُورث إلا لشخص واحد في كل جيل.<br><br>
+                <strong>الجزيرة المركزية: برج السحر والمجلس الأعلى</strong><br>
+                بين القارات الأربع، تنتصب الجزيرة التي تضم "برج السحر"، وهو بناء ضخم يُشاع أنه أقدم من القارات نفسها. تقع هذه الجزيرة استراتيجياً في المياه الفاصلة بين قارة إيلنثا (قارة الضباب والنظام) وجزيرة زيرافين (معقل الظلال)، مما يمنح البرج سلطة إشرافية مباشرة على كلتا المنطقتين. هذا البرج هو المقر الفعلي لـ "المجلس السحري الأعلى"، الذي تأسس بعد الانتصار في "حرب الدماء" التي قادتها الساحرة المظلمة "أريثيا". البرج هو النقطة التي تُصاغ فيها قوانين فيلمورا السحرية، ويمثل الحياد المطلق والسلطة الرقابية العليا على السحر في العالم.
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2026 - تالا / Umbra Reign </p>
+    </footer>
+
+    <!-- برمجة تكبير وتصغير الخط -->
+    <script>
+        let currentSize = 1.35;
+        function changeFontSize(direction) {
+            currentSize += direction * 0.1;
+            if (currentSize < 1.0) currentSize = 1.0;
+            if (currentSize > 2.2) currentSize = 2.2;
+            document.getElementById('chapterText').style.fontSize = currentSize + 'rem';
+        }
+    </script>
+</body>
+</html>
